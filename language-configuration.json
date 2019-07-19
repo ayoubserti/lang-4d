@@ -1,0 +1,57 @@
+{
+    "comments": {
+        "lineComment": "//",
+        "blockComment": [ "/**", "**/" ]
+    },
+    // symbols used as brackets
+    "brackets": [
+        ["{", "}"],
+        ["(", ")"]
+    ],
+    // symbols that are auto closed when typing
+    // symbols that that can be used to surround a selection
+    "surroundingPairs": [
+        ["{", "}"],
+        ["[", "]"],
+        ["(", ")"],
+        ["\"", "\""],
+        ["'", "'"]
+    ],
+    "autoClosingPairs" :[
+        {
+            "open": "if" , "close": "\nend if"
+        },
+        {
+            "open": "Repeat" , "close": "Until"
+        },
+        {
+            "open": "Case of" , "close": "End Case"
+        },
+        {
+            "open": "While" , "close": "End While"
+        },
+        {
+            "open": "for each" , "close": "End for each"
+        },
+        {
+            "open": "Use" , "close": "End Use"
+        },
+        {
+            "open": "(" , "close": ")"
+        },
+        { "open": "{" , "close": "}"},
+        { "open": "for" , "close": "end for","notIn": ["string", "comment"]},
+        { "open": "Begin SQL" , "close": "End SQL"},
+        { "open": "'", "close": "'", "notIn": ["string", "comment"] },
+        { "open": "\"", "close": "\"", "notIn": ["string"] },
+        { "open": "`", "close": "`", "notIn": ["string", "comment"] },
+        { "open": "/**", "close": " **/", "notIn": ["string"] }
+    ],
+    "autoCloseBefore": ";:.,=}])>` \n\t",
+    "indentationRules": {
+        "increaseIndentPattern": "^((?!\\/\\/).)*(\\{[^}\"'`]*|\\([^)\"'`]*|\\[[^\\]\"'`]*)$",
+        "decreaseIndentPattern": "^((?!.*?\\/\\*).*\\*/)?\\s*[\\)\\}\\]].*$"
+      },
+     
+      
+}

@@ -1,0 +1,29 @@
+{
+    "name": "lang-4d",
+    "displayName": "lang-4d",
+    "description": "Syntack highlighting for 4D Language ",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.36.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "4d",
+            "aliases": ["4D", "4d"],
+            "extensions": [".4dm"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "4d",
+            "scopeName": "source.4dm",
+            "path": "./syntaxes/4d.tmLanguage.json",
+            "embeddedLanguages": {
+                "meta.embedded.block.javascript": "source.js"
+              }
+
+        }]
+    }
+}

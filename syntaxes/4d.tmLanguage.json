@@ -1,0 +1,127 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "4D",
+	"patterns": [
+		{ 
+			"include" : "#comments"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#operators"
+		},
+		{
+			"match": "(?i)\\b(NULL|true|false)\\b",
+			"name": "constant.language.4d"
+		}
+	],
+	"repository": {
+		
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.4d",
+				"match": "(?i)\\b(C_TEXT|C_BOOLEAN|C_REAL|C_OBJECT|if|while|else|end if|end for|Begin SQL|End SQL|for each|End for each|while|end while|use|end use|case of|end case|repeat|until|for)\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.4d",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.4d",
+					"match": "\\\\."
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+			  {
+				"captures": {
+				  "1": {
+					"name": "meta.toc-list.banner.block.4d"
+				  }
+				},
+				"match": "^/\\** =(\\s*.*?)\\s*= \\**/$\\n?",
+				"name": "comment.block.4d"
+			  },
+			  {
+				"begin": "/\\**",
+				"beginCaptures": {
+				  "0": {
+					"name": "punctuation.definition.comment.begin.4d"
+				  }
+				},
+				"end": "\\**/",
+				"endCaptures": {
+				  "0": {
+					"name": "punctuation.definition.comment.end.4d"
+				  }
+				},
+				"name": "comment.block.4d"
+			  },
+			  {
+				"captures": {
+				  "1": {
+					"name": "meta.toc-list.banner.line.4d"
+				  }
+				},
+				"match": "^// =(\\s*.*?)\\s*=\\s*$\\n?",
+				"name": "comment.line.banner.c"
+			  },
+			  {
+				"begin": "(^[ \\t]+)?(?=//)",
+				"beginCaptures": {
+				  "1": {
+					"name": "punctuation.whitespace.comment.leading.4d"
+				  }
+				},
+				"end": "(?!\\G)",
+				"patterns": [
+				  {
+					"begin": "//",
+					"beginCaptures": {
+					  "0": {
+						"name": "punctuation.definition.comment.4d"
+					  }
+					},
+					"end": "(?=\\n)",
+					"name": "comment.line.double-slash.4d",
+					"patterns": [
+					  {
+						"include": "#line_continuation_character"
+					  }
+					]
+				  }
+				]
+			  }
+			]
+		  },
+		"semicolon": {
+			"match": ";",
+			"name": "punctuation.separator.delimiter.semicolon.4d"
+		  },
+		  "operators": {
+			"patterns": [
+				{
+					"match": ":=",
+					"name": "keyword.operator.assignment.4d"
+				},
+				{
+					"match": "#|<=|>=|Ò=|<|>",
+					"name": "keyword.operator.comparison.4d"
+				},
+				{
+					"match": "%|\\*|/|-|\\+",
+					"name": "keyword.operator.4d"
+				}
+			]
+		  }
+		  
+	},
+	"scopeName": "source.4dm"
+}
