@@ -9,7 +9,10 @@
 			"include": "#keywords"
 		},
 		{
-			"include":"#parameters"
+			"include": "#parameters"
+		},
+		{
+			"include": "#local_variables"
 		},
 		{
 			"include": "#strings"
@@ -25,7 +28,7 @@
 			"include": "#numbers"
 		},
 		{
-			"include" :"#block"
+			"include": "#block"
 		},
 		{
 			"include": "#function-call-innards"
@@ -38,10 +41,6 @@
 			"match": ";",
 			"name": "punctuation.separator.delimiter.4d"
 		},
-		{
-			"match": "(?i)\\b(\\$[a-zA-Z_0-9])/\\w\\b",
-			"name": "variable.name.4d"
-		}	,
 		{
 			"name": "meta.bracket.square.access.c",
 			"begin": "([a-zA-Z_][a-zA-Z_0-9]*|(?<=[\\]\\)]))?(\\[)(?!\\])",
@@ -67,9 +66,13 @@
 		}
 	],
 	"repository": {
-		"parameters":{
-			"match" : "\\$[0-9]",
-			"name" : "variable.parameter.4d"
+		"parameters": {
+			"match": "\\$[0-9]",
+			"name": "variable.parameter.4d"
+		},
+		"local_variables": {
+			"match": "\\$[a-zA-Z_0-9]*",
+			"name": "variable.local.name.4d"
 		},
 		"keywords": {
 			"patterns": [
@@ -386,13 +389,12 @@
 								}
 							},
 							"end": "(?=\\n)",
-							"name": "comment.line.double-slash.4d"							
+							"name": "comment.line.double-slash.4d"
 						}
 					]
 				}
 			]
 		},
-		
 		"operators": {
 			"patterns": [
 				{
@@ -411,85 +413,89 @@
 		},
 		"block": {
 			"patterns": [
-			  {
-				"begin": "(?i)\\b(for each)\\b",
-				"beginCaptures": {
-				  "0": {
-					"name": "punctuation.section.block.begin.for_each.curly.4d"
-				  }
-				},
-				"end": "(?i)\\b(end for each)\\b",
-				"endCaptures": {
-				  "0": {
-					"name": "punctuation.section.block.end.for_each.curly.4d"
-				  }
-				},
-				"name": "meta.block.4d"
-				
-			  }
+				{
+					"begin": "(?i)\\b(for each)\\b",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.section.block.begin.for_each.curly.4d"
+						}
+					},
+					"end": "(?i)\\b(end for each)\\b",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.section.block.end.for_each.curly.4d"
+						}
+					},
+					"name": "meta.block.4d"
+				}
 			]
 		},
 		"function-call-innards": {
 			"patterns": [
-			  {
-				"include": "#comments"
-			  },
-			  {
-				"include": "#storage_types"
-			  },
-			  {
-				"include": "#operators"
-			  },
-			  {
-				"begin": "(?x)\n(?!(?:while|for|do|if|else|switch|catch|enumerate|return|typeid|alignof|alignas|sizeof|[cr]?iterate|and|and_eq|bitand|bitor|compl|not|not_eq|or|or_eq|typeid|xor|xor_eq|alignof|alignas)\\s*\\()\n(\n(?:[A-Za-z_\\s*][A-Za-z0-9_]*+)++  # actual name\n|\n(?:(?<=operator)(?:[-*&<>=+!]+|\\(\\)|\\[\\]))\n)\n\\s*(\\()",
-				"beginCaptures": {
-				  "1": {
-					"name": "entity.name.function.4d"
-				  },
-				  "2": {
-					"name": "punctuation.section.arguments.begin.bracket.round.4d"
-				  }
+				{
+					"include": "#comments"
 				},
-				"end": "\\)",
-				"endCaptures": {
-				  "0": {
-					"name": "punctuation.section.arguments.end.bracket.round.4d"
-				  }
+				{
+					"include": "#storage_types"
 				},
-				"patterns": [
-				  {
-					"include": "#function-call-innards"
-				  },
-					{
-						"include":"#strings"
+				{
+					"include": "#operators"
+				},
+				{
+					"begin": "(?x)\n(?!(?:while|for|do|if|else|switch|catch|enumerate|return|typeid|alignof|alignas|sizeof|[cr]?iterate|and|and_eq|bitand|bitor|compl|not|not_eq|or|or_eq|typeid|xor|xor_eq|alignof|alignas)\\s*\\()\n(\n(?:[A-Za-z_\\s*][A-Za-z0-9_]*+)++  # actual name\n|\n(?:(?<=operator)(?:[-*&<>=+!]+|\\(\\)|\\[\\]))\n)\n\\s*(\\()",
+					"beginCaptures": {
+						"1": {
+							"name": "entity.name.function.4d"
+						},
+						"2": {
+							"name": "punctuation.section.arguments.begin.bracket.round.4d"
+						}
 					},
-					{
-						"include":"#numbers"
+					"end": "\\)",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.section.arguments.end.bracket.round.4d"
+						}
 					},
-					{"include": "#parameters"}
-				]
-			  },
-			  {
-				"begin": "\\(",
-				"beginCaptures": {
-				  "0": {
-					"name": "punctuation.section.parens.begin.bracket.round.4d"
-				  }
+					"patterns": [
+						{
+							"include": "#function-call-innards"
+						},
+						{
+							"include": "#strings"
+						},
+						{
+							"include": "#numbers"
+						},
+						{
+							"include": "#parameters"
+						},
+						{
+							"include": "#local_variables"
+						}
+					]
 				},
-				"end": "\\)",
-				"endCaptures": {
-				  "0": {
-					"name": "punctuation.section.parens.end.bracket.round.4d"
-				  }
-				},
-				"patterns": [
-				  {
-					"include": "#function-call-innards"
-					}
-				]
-			  }
+				{
+					"begin": "\\(",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.section.parens.begin.bracket.round.4d"
+						}
+					},
+					"end": "\\)",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.section.parens.end.bracket.round.4d"
+						}
+					},
+					"patterns": [
+						{
+							"include": "#function-call-innards"
+						}
+					]
+				}
 			]
-		  }
+		}
 	},
 	"scopeName": "source.4dm"
 }
