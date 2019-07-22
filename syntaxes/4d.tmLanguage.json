@@ -9,6 +9,9 @@
 			"include": "#keywords"
 		},
 		{
+			"include":"#parameters"
+		},
+		{
 			"include": "#strings"
 		},
 		{
@@ -64,6 +67,10 @@
 		}
 	],
 	"repository": {
+		"parameters":{
+			"match" : "\\$[0-9]",
+			"name" : "variable.parameter.4d"
+		},
 		"keywords": {
 			"patterns": [
 				{
@@ -458,7 +465,8 @@
 					},
 					{
 						"include":"#numbers"
-					}
+					},
+					{"include": "#parameters"}
 				]
 			  },
 			  {
