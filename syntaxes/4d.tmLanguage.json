@@ -25,7 +25,10 @@
 			"include" :"#block"
 		},
 		{
-			"match": "\n",
+			"include": "#function-call-innards"
+		},
+		{
+			"match": "\\n",
 			"name": "punctuation.terminator.statement.4d"
 		},
 		{
@@ -35,7 +38,30 @@
 		{
 			"match": "(?i)\\b(\\$[a-zA-Z_0-9])/\\w\\b",
 			"name": "variable.name.4d"
-		}	
+		}	,
+		{
+			"name": "meta.bracket.square.access.c",
+			"begin": "([a-zA-Z_][a-zA-Z_0-9]*|(?<=[\\]\\)]))?(\\[)(?!\\])",
+			"beginCaptures": {
+				"1": {
+					"name": "variable.object.4d"
+				},
+				"2": {
+					"name": "punctuation.definition.begin.bracket.square.4d"
+				}
+			},
+			"end": "\\]",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.end.bracket.square.4d"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#function-call-innards"
+				}
+			]
+		}
 	],
 	"repository": {
 		"keywords": {
@@ -393,6 +419,66 @@
 				},
 				"name": "meta.block.4d"
 				
+			  }
+			]
+		},
+		"function-call-innards": {
+			"patterns": [
+			  {
+				"include": "#comments"
+			  },
+			  {
+				"include": "#storage_types"
+			  },
+			  {
+				"include": "#operators"
+			  },
+			  {
+				"begin": "(?x)\n(?!(?:while|for|do|if|else|switch|catch|enumerate|return|typeid|alignof|alignas|sizeof|[cr]?iterate|and|and_eq|bitand|bitor|compl|not|not_eq|or|or_eq|typeid|xor|xor_eq|alignof|alignas)\\s*\\()\n(\n(?:[A-Za-z_\\s*][A-Za-z0-9_]*+)++  # actual name\n|\n(?:(?<=operator)(?:[-*&<>=+!]+|\\(\\)|\\[\\]))\n)\n\\s*(\\()",
+				"beginCaptures": {
+				  "1": {
+					"name": "entity.name.function.4d"
+				  },
+				  "2": {
+					"name": "punctuation.section.arguments.begin.bracket.round.4d"
+				  }
+				},
+				"end": "\\)",
+				"endCaptures": {
+				  "0": {
+					"name": "punctuation.section.arguments.end.bracket.round.4d"
+				  }
+				},
+				"patterns": [
+				  {
+					"include": "#function-call-innards"
+				  },
+					{
+						"include":"#strings"
+					},
+					{
+						"include":"#numbers"
+					}
+				]
+			  },
+			  {
+				"begin": "\\(",
+				"beginCaptures": {
+				  "0": {
+					"name": "punctuation.section.parens.begin.bracket.round.4d"
+				  }
+				},
+				"end": "\\)",
+				"endCaptures": {
+				  "0": {
+					"name": "punctuation.section.parens.end.bracket.round.4d"
+				  }
+				},
+				"patterns": [
+				  {
+					"include": "#function-call-innards"
+					}
+				]
 			  }
 			]
 		  }
