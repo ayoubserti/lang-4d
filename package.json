@@ -3,6 +3,13 @@
     "displayName": "lang-4d",
     "description": "Syntack highlighting for 4D Language ",
     "version": "0.0.1",
+    "publisher": "ayoubserti",
+    "author": "Ayoub Serti <ayb.serti@4d.com>",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ayoubserti/lang-4d.git"
+    },
     "engines": {
         "vscode": "^1.36.0"
     },
