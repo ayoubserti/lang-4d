@@ -74,7 +74,7 @@
 			"name": "variable.parameter.4d"
 		},
 		"local_variables": {
-			"match": "\\$[a-zA-Z_0-9]*",
+			"match": "\\$[a-zA-Z_0-9 ]*",
 			"name": "variable.local.name.4d"
 		},
 		"keywords": {
