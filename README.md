@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/ayoubserti/lang-4d.svg)](https://travis-ci.org/ayoubserti/lang-4d)
 # lang-4d README
 
 VSCode extension for 4D syntax highlighting.
