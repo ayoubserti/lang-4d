@@ -19,7 +19,7 @@
     ],
     "autoClosingPairs" :[
         {
-            "open": "if" , "close": "\nend if"
+            "open": "If" , "close": "\nEnd if"
         },
         {
             "open": "Repeat" , "close": "Until"
@@ -31,7 +31,7 @@
             "open": "While" , "close": "End While"
         },
         {
-            "open": "for each" , "close": "End for each"
+            "open": "For each" , "close": "End for each"
         },
         {
             "open": "Use" , "close": "End Use"
