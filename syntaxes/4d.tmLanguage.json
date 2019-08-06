@@ -459,7 +459,7 @@
 						},
 
 						"2": {
-							"name": "entity.command.4d"
+							"name": "entity.command.number.4d"
 						},
 						"3": {
 							"name": "punctuation.section.arguments.begin.bracket.round.4d"
