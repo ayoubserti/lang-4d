@@ -44,7 +44,7 @@
 			"name": "punctuation.separator.delimiter.4d"
 		},
 		{
-			"name": "meta.bracket.square.access.c",
+			"name": "meta.bracket.square.access.4d",
 			"begin": "([a-zA-Z_][a-zA-Z_0-9]*|(?<=[\\]\\)]))?(\\[)(?!\\])",
 			"beginCaptures": {
 				"1": {
@@ -118,12 +118,12 @@
 							"patterns": [
 								{
 									"match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
-									"name": "punctuation.separator.constant.numeric"
+									"name": "punctuation.separator.constant.numeric.4d"
 								}
 							]
 						},
 						"3": {
-							"name": "punctuation.separator.constant.numeric"
+							"name": "punctuation.separator.constant.numeric.4d"
 						},
 						"4": {
 							"name": "constant.numeric.hexadecimal.4d"
@@ -133,12 +133,12 @@
 							"patterns": [
 								{
 									"match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
-									"name": "punctuation.separator.constant.numeric"
+									"name": "punctuation.separator.constant.numeric.4d"
 								}
 							]
 						},
 						"6": {
-							"name": "punctuation.separator.constant.numeric"
+							"name": "punctuation.separator.constant.numeric.4d"
 						},
 						"8": {
 							"name": "keyword.other.unit.exponent.hexadecimal.4d"
@@ -154,7 +154,7 @@
 							"patterns": [
 								{
 									"match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
-									"name": "punctuation.separator.constant.numeric"
+									"name": "punctuation.separator.constant.numeric.4d"
 								}
 							]
 						},
@@ -171,12 +171,12 @@
 							"patterns": [
 								{
 									"match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
-									"name": "punctuation.separator.constant.numeric"
+									"name": "punctuation.separator.constant.numeric.4d"
 								}
 							]
 						},
 						"3": {
-							"name": "punctuation.separator.constant.numeric"
+							"name": "punctuation.separator.constant.numeric.4d"
 						},
 						"4": {
 							"name": "constant.numeric.decimal.point.4d"
@@ -186,12 +186,12 @@
 							"patterns": [
 								{
 									"match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
-									"name": "punctuation.separator.constant.numeric"
+									"name": "punctuation.separator.constant.numeric.4d"
 								}
 							]
 						},
 						"6": {
-							"name": "punctuation.separator.constant.numeric"
+							"name": "punctuation.separator.constant.numeric.4d"
 						},
 						"8": {
 							"name": "keyword.other.unit.exponent.decimal.4d"
@@ -207,7 +207,7 @@
 							"patterns": [
 								{
 									"match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
-									"name": "punctuation.separator.constant.numeric"
+									"name": "punctuation.separator.constant.numeric.4d"
 								}
 							]
 						},
@@ -227,12 +227,12 @@
 							"patterns": [
 								{
 									"match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
-									"name": "punctuation.separator.constant.numeric"
+									"name": "punctuation.separator.constant.numeric.4d"
 								}
 							]
 						},
 						"3": {
-							"name": "punctuation.separator.constant.numeric"
+							"name": "punctuation.separator.constant.numeric.4d"
 						},
 						"4": {
 							"name": "keyword.other.unit.suffix.integer.4d"
@@ -250,12 +250,12 @@
 							"patterns": [
 								{
 									"match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
-									"name": "punctuation.separator.constant.numeric"
+									"name": "punctuation.separator.constant.numeric.4d"
 								}
 							]
 						},
 						"3": {
-							"name": "punctuation.separator.constant.numeric"
+							"name": "punctuation.separator.constant.numeric.4d"
 						},
 						"4": {
 							"name": "keyword.other.unit.suffix.integer.4d"
@@ -273,12 +273,12 @@
 							"patterns": [
 								{
 									"match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
-									"name": "punctuation.separator.constant.numeric"
+									"name": "punctuation.separator.constant.numeric.4d"
 								}
 							]
 						},
 						"3": {
-							"name": "punctuation.separator.constant.numeric"
+							"name": "punctuation.separator.constant.numeric.4d"
 						},
 						"5": {
 							"name": "keyword.other.unit.exponent.hexadecimal.4d"
@@ -294,7 +294,7 @@
 							"patterns": [
 								{
 									"match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
-									"name": "punctuation.separator.constant.numeric"
+									"name": "punctuation.separator.constant.numeric.4d"
 								}
 							]
 						},
@@ -311,12 +311,12 @@
 							"patterns": [
 								{
 									"match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
-									"name": "punctuation.separator.constant.numeric"
+									"name": "punctuation.separator.constant.numeric.4d"
 								}
 							]
 						},
 						"3": {
-							"name": "punctuation.separator.constant.numeric"
+							"name": "punctuation.separator.constant.numeric.4d"
 						},
 						"5": {
 							"name": "keyword.other.unit.exponent.decimal.4d"
@@ -332,7 +332,7 @@
 							"patterns": [
 								{
 									"match": "(?<=[0-9a-fA-F])'(?=[0-9a-fA-F])",
-									"name": "punctuation.separator.constant.numeric"
+									"name": "punctuation.separator.constant.numeric.4d"
 								}
 							]
 						},
@@ -452,12 +452,16 @@
 					"include": "#operators"
 				},
 				{
-					"begin": "(?x)\n(?!(?:while|for|do|if|else|switch|catch|enumerate|return|typeid|alignof|alignas|sizeof|[cr]?iterate|and|and_eq|bitand|bitor|compl|not|not_eq|or|or_eq|typeid|xor|xor_eq|alignof|alignas)\\s*\\()\n(\n(?:[A-Za-z_\\s*][A-Za-z0-9_]*+)++  # actual name\n|\n(?:(?<=operator)(?:[-*&<>=+!]+|\\(\\)|\\[\\]))\n)\n\\s*(\\()",
+					"begin": "(?x)\n(?!\\s*\\()\n(\n(?:[A-Za-z_\\s*][A-Za-z0-9_]*+)++(\\:C[0-9]+)?  # actual name\n|\n(?:(?<=operator)(?:[-*&<>=+!]+|\\(\\)|\\[\\]))\n)\n\\s*(\\()",
 					"beginCaptures": {
 						"1": {
 							"name": "entity.name.function.4d"
 						},
+
 						"2": {
+							"name": "entity.command.4d"
+						},
+						"3": {
 							"name": "punctuation.section.arguments.begin.bracket.round.4d"
 						}
 					},
