@@ -65,6 +65,12 @@
 					"include": "#function-call-innards"
 				}
 			]
+		},
+		{
+			"include": "#member_access"
+		},
+		{
+			"include": "#method_access"
 		}
 	],
 	"repository": {
@@ -515,7 +521,110 @@
 					]
 				}
 			]
-		}
+		},
+		"member_access": {
+			"match": "((?:[a-zA-Z_\\s*]*(\\:C[0-9]+)?|(?<=\\]|\\)))\\s*)(?:((?:\\.\\*|\\.))|((?:->\\*|->)))((?:[a-zA-Z_]\\w*\\s*(?:(?:(?:\\.\\*|\\.))|(?:(?:->\\*|->)))\\s*)*)\\s*(\\b[a-zA-Z_]\\w*\\b(?!\\())",
+			"captures": {
+			  "1": {
+				"name": "variable.other.object.access.4d"
+			  },
+			  "2": {
+				"name": "entity.command.number.4d"
+			  },
+			  "3": {
+				"name": "punctuation.separator.dot-access.4d"
+			  },
+			  "4": {
+				"name": "punctuation.separator.pointer-access.4d"
+			  },
+			  "5": {
+				"patterns": [
+				  {
+					"include": "#member_access"
+				  },
+				  {
+					"include": "#method_access"
+				  },
+				  {
+					"match": "((?:[a-zA-Z_]\\w*|(?<=\\]|\\)))\\s*)(?:((?:\\.\\*|\\.))|((?:->\\*|->)))",
+					"captures": {
+					  "1": {
+						"name": "variable.other.object.access.4d"
+					  },
+					  "2": {
+						"name": "punctuation.separator.dot-access.4d"
+					  },
+					  "3": {
+						"name": "punctuation.separator.pointer-access.4d"
+					  }
+					}
+				  }
+				]
+			  },
+			  "6": {
+				"name": "variable.other.member.4d"
+			  }
+			}
+		},
+		"method_access": {
+			"contentName": "meta.function-call.member.4d",
+			"begin": "((?:[a-zA-Z_\\s*]*(\\:C[0-9]+)?|(?<=\\]|\\)))\\s*)(?:((?:\\.\\*|\\.))|((?:->\\*|->)))((?:[a-zA-Z_]\\w*\\s*(?:(?:(?:\\.\\*|\\.))|(?:(?:->\\*|->)))\\s*)*)\\s*([a-zA-Z_]\\w*)(\\()",
+			"beginCaptures": {
+			  "1": {
+				"name": "variable.other.object.access.4d"
+			  },
+			  "2": {
+				"name": "entity.command.number.4d"
+			  },
+			  "3": {
+				"name": "punctuation.separator.dot-access.4d"
+			  },
+			  "4": {
+				"name": "punctuation.separator.pointer-access.4d"
+			  },
+			  "5": {
+				"patterns": [
+				  {
+					"include": "#member_access"
+				  },
+				  {
+					"include": "#method_access"
+				  },
+				  {
+					"match": "((?:[a-zA-Z_]\\w*|(?<=\\]|\\)))\\s*)(?:((?:\\.\\*|\\.))|((?:->\\*|->)))",
+					"captures": {
+					  "1": {
+						"name": "variable.other.object.access.4d"
+					  },
+					  "2": {
+						"name": "punctuation.separator.dot-access.4d"
+					  },
+					  "3": {
+						"name": "punctuation.separator.pointer-access.4d"
+					  }
+					}
+				  }
+				]
+			  },
+			  "6": {
+				"name": "entity.name.function.member.4d"
+			  },
+			  "7": {
+				"name": "punctuation.section.arguments.begin.bracket.round.function.member.4d"
+			  }
+			},
+			"end": "(\\))",
+			"endCaptures": {
+			  "1": {
+				"name": "punctuation.section.arguments.end.bracket.round.function.member.4d"
+			  }
+			},
+			"patterns": [
+			  {
+				"include": "#function-call-innards"
+			  }
+			]
+		  }
 	},
 	"scopeName": "source.4dm"
 }
