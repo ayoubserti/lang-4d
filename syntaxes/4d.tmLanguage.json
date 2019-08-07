@@ -40,8 +40,7 @@
 			"name": "punctuation.terminator.statement.4d"
 		},
 		{
-			"match": ";",
-			"name": "punctuation.separator.delimiter.4d"
+			"include": "#param_separator"
 		},
 		{
 			"name": "meta.bracket.square.access.4d",
@@ -89,6 +88,10 @@
 		"local_variables": {
 			"match": "\\$[a-zA-Z_0-9 ]*",
 			"name": "variable.local.name.4d"
+		},
+		"param_separator":{
+			"match": ";",
+			"name": "punctuation.separator.delimiter.4d"
 		},
 		"keywords": {
 			"patterns": [
@@ -498,6 +501,9 @@
 						},
 						{ 
 							"include" : "#constant_4d"
+						},
+						{
+							"include" : "#param_separator"
 						}
 					]
 				},
