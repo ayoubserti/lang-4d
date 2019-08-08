@@ -359,6 +359,21 @@
 		"comments": {
 			"patterns": [
 				{
+				"name": "comment.line.double-slash.cpp",
+				"begin": "\\s*+(\\/\\/)",
+				"beginCaptures": {
+					"1": {
+					"name": "punctuation.definition.comment.cpp"
+					}
+				},
+				"end": "(?<=\\n)(?<!\\\\\\n)",
+				"patterns": [
+					{
+					"include": "#line_continuation_character"
+					}
+				]
+				},
+				{
 					"captures": {
 						"1": {
 							"name": "meta.toc-list.banner.block.4d"
@@ -388,7 +403,7 @@
 							"name": "meta.toc-list.banner.line.4d"
 						}
 					},
-					"match": "^// =(\\s*.*?)\\s*=\\s*$\\n?",
+					"match": "^//=(\\s*.*?)\\s*=\\s*$\\n?",
 					"name": "comment.line.banner.4d"
 				},
 				{
@@ -408,12 +423,29 @@
 								}
 							},
 							"end": "(?=\\n)",
-							"name": "comment.line.double-slash.4d"
+							"name": "comment.line.double-slash.4d",
+							"patterns": [
+								{
+								  "include": "#line_continuation_character"
+								}
+							]
 						}
 					]
 				}
 			]
 		},
+		"line_continuation_character": {
+			"patterns": [
+			  {
+				"match": "(\\\\)\\n",
+				"captures": {
+				  "1": {
+					"name": "constant.character.escape.line-continuation.c"
+				  }
+				}
+			  }
+			]
+		  },
 		"operators": {
 			"patterns": [
 				{
@@ -421,7 +453,7 @@
 					"name": "keyword.operator.assignment.4d"
 				},
 				{
-					"match": "#|<=|>=|Ò=|<|>",
+					"match": "#|<=|>=|<|>|=",
 					"name": "keyword.operator.comparison.4d"
 				},
 				{
@@ -461,7 +493,7 @@
 					"include": "#operators"
 				},
 				{
-					"begin": "(?x)\n(?!\\s*\\()\n(\n(?:[A-Za-z_\\s*][A-Za-z0-9_]*+)++(\\:C[0-9]+)?  # actual name\n|\n(?:(?<=operator)(?:[-*&<>=+!]+|\\(\\)|\\[\\]))\n)\n\\s*(\\()",
+					"begin": "(?x)\n(?!\\s*\\()\n(\n(?:[A-Za-z_\\s*][A-Za-z0-9_]*+)++(\\:C[0-9]+)?  # actual name\n|\n(?:(?<=operator)(?:[-*&<>=+#]+|\\(\\)|\\[\\]))\n)\n\\s*(\\()",
 					"beginCaptures": {
 						"1": {
 							"name": "entity.name.function.4d"
@@ -504,6 +536,12 @@
 						},
 						{
 							"include" : "#param_separator"
+						},
+						{
+							"include": "#operators"
+						},
+						{
+							"include" :"member_access"
 						}
 					]
 				},
@@ -523,6 +561,9 @@
 					"patterns": [
 						{
 							"include": "#function-call-innards"
+						},
+						{
+							"include" :"member_access"
 						}
 					]
 				}
