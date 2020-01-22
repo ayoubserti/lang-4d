@@ -6,16 +6,46 @@
 			"include": "#comments"
 		},
 		{
+			"include" :"#for_loop"
+		},
+		{
 			"include": "#keywords"
 		},
 		{
 			"include": "#parameters"
 		},
 		{
-			"include": "#local_variables"
+			"include" : "#affectation_variable"
+		},
+		{
+			"include" : "#long_int_variable"
+		},
+		{
+			"include" :"#real_variable"
+		},
+		{
+			"include" :"#text_variable"
+		},
+		{
+			"include" : "#boolean_variable"
+		},
+		{
+			"include" : "#picture_variable"
+		},
+		{
+			"include" : "#pointer_variable"
+		},
+		{
+			"include" : "#object_variable"
 		},
 		{
 			"include": "#strings"
+		},
+		{
+			"include": "#interprocess_variable"
+		},
+		{
+			"include": "#local_variables"
 		},
 		{
 			"include": "#operators"
@@ -31,6 +61,9 @@
 		},
 		{
 			"include": "#block"
+		},
+		{
+			"include" :"#table_reference"
 		},
 		{
 			"include": "#function-call-innards"
@@ -73,12 +106,377 @@
 		}
 	],
 	"repository": {
+		"long_int_variable" :{
+			"name" : "storage.type.4d",
+			"begin": "(?i)(C_LONGINT(\\:C283)?)(\\()((?i)(?:\\$|<>|)(?:\\$|<>|)[a-z_0-9]+[a-z_0-9 ]*)",
+			"beginCaptures": {
+				"1":
+				{
+					"name" :"storage.type.longint.4d"
+				},
+				"2":
+				{
+					"name" : "meta.c_longint.code.4d"
+				},
+				"3":
+				{
+					"name": "punctuation.section.arguments.begin.bracket.round.4d"	
+				},
+				"4":{
+					"name" : "variable.name.longint.4d"
+				}
+			},
+			"patterns": [
+						{
+							"name" : "variable.name.longint.4d",
+							"match": "(?i)(?:\\$|<>|)(?:\\$|<>|)[a-z_0-9]+[a-z_0-9 ]*"
+						}, 
+						{
+							"include" :"#param_separator"
+						}
+					],
+			
+			"end" :"(\\))",
+			"endCaptures": {
+				"1": {
+					"name": "punctuation.section.arguments.end.bracket.round.4d"
+				}
+				
+			}
+				
+		},
+		"real_variable" :{
+			"name" : "storage.type.real.4d",
+			"begin": "(?i)(C_REAL(\\:C285)?)(\\()((?i)(?:\\$|<>|)(?:\\$|<>|)[a-z_0-9]+[a-z_0-9 ]*)",
+			"beginCaptures": {
+				"1":
+				{
+					"name" :"storage.type.real.4d"
+				},
+				"2":
+				{
+					"name" : "meta.c_real.code.4d"
+				},
+				"3":
+				{
+					"name": "punctuation.section.arguments.begin.bracket.round.4d"	
+				},
+				"4":{
+					"name" : "variable.name.real.4d"
+				}
+			},
+			"patterns": [
+						{
+							"name" : "variable.name.real.4d",
+							"match": "(?i)(?:\\$|<>|)(?:\\$|<>|)[a-z_0-9]+[a-z_0-9 ]*"
+						}, 
+						{
+							"include" :"#param_separator"
+						}
+					],
+			
+			"end" :"(\\))",
+			"endCaptures": {
+				"1": {
+					"name": "punctuation.section.arguments.end.bracket.round.4d"
+				}
+				
+			}
+				
+		},
+		"text_variable" :{
+			"name" : "storage.type.text.4d",
+			"begin": "(?i)(C_TEXT(\\:C284)?)(\\()((?i)(?:\\$|<>|)(?:\\$|<>|)[a-z_0-9]+[a-z_0-9 ]*)",
+			"beginCaptures": {
+				"1":
+				{
+					"name" :"storage.type.text.4d"
+				},
+				"2":
+				{
+					"name" : "meta.c_text.code.4d"
+				},
+				"3":
+				{
+					"name": "punctuation.section.arguments.begin.bracket.round.4d"	
+				},
+				"4":{
+					"name" : "variable.name.text.4d"
+				}
+			},
+			"patterns": [
+						{
+							"name" : "variable.name.text.4d",
+							"match": "(?i)(?:\\$|<>|)(?:\\$|<>|)[a-z_0-9]+[a-z_0-9 ]*"
+						}, 
+						{
+							"include" :"#param_separator"
+						}
+					],
+			
+			"end" :"(\\))",
+			"endCaptures": {
+				"1": {
+					"name": "punctuation.section.arguments.end.bracket.round.4d"
+				}
+				
+			}
+				
+		},
+		"boolean_variable" :{
+			"name" : "storage.type.boolean.4d",
+			"begin": "(?i)(C_BOOLEAN(\\:C305)?)(\\()((?i)[\\$a-z_0-9 ]+)",
+			"beginCaptures": {
+				"1":
+				{
+					"name" :"storage.type.boolean.4d"
+				},
+				"2":
+				{
+					"name" : "meta.c_boolean.code.4d"
+				},
+				"3":
+				{
+					"name": "punctuation.section.arguments.begin.bracket.round.4d"	
+				},
+				"4":{
+					"name" : "variable.name.boolean.4d"
+				}
+			},
+			"patterns": [
+						{
+							"name" : "variable.name.boolean.4d",
+							"match": "(?i)(?:\\$|<>|)(?:\\$|<>|)[a-z_0-9]+[a-z_0-9 ]*"
+						}, 
+						{
+							"include" :"#param_separator"
+						}
+					],
+			
+			"end" :"(\\))",
+			"endCaptures": {
+				"1": {
+					"name": "punctuation.section.arguments.end.bracket.round.4d"
+				}
+				
+			}
+				
+		},
+		"picture_variable" :{
+			"name" : "storage.type.picture.4d",
+			"begin": "(?i)(C_PICTURE(\\:C286)?)(\\()((?i)(?:\\$|<>|)(?:\\$|<>|)[a-z_0-9]+[a-z_0-9 ]*)",
+			"beginCaptures": {
+				"1":
+				{
+					"name" :"storage.type.picture.4d"
+				},
+				"2":
+				{
+					"name" : "meta.c_picture.code.4d"
+				},
+				"3":
+				{
+					"name": "punctuation.section.arguments.begin.bracket.round.4d"	
+				},
+				"4":{
+					"name" : "variable.name.picture.4d"
+				}
+			},
+			"patterns": [
+						{
+							"name" : "variable.name.picture.4d",
+							"match": "(?i)(?:\\$|<>|)(?:\\$|<>|)[a-z_0-9]+[a-z_0-9 ]*"
+						}, 
+						{
+							"include" :"#param_separator"
+						}
+					],
+			
+			"end" :"(\\))",
+			"endCaptures": {
+				"1": {
+					"name": "punctuation.section.arguments.end.bracket.round.4d"
+				}
+				
+			}
+				
+		},
+		"pointer_variable" :{
+			"name" : "storage.type.pointer.4d",
+			"begin": "(?i)(C_POINTER(\\:C301)?)(\\()((?i)(?:\\$|<>|)(?:\\$|<>|)[a-z_0-9]+[a-z_0-9 ]*)",
+			"beginCaptures": {
+				"1":
+				{
+					"name" :"storage.type.pointer.4d"
+				},
+				"2":
+				{
+					"name" : "meta.c_pointer.code.4d"
+				},
+				"3":
+				{
+					"name": "punctuation.section.arguments.begin.bracket.round.4d"	
+				},
+				"4":{
+					"name" : "variable.name.pointer.4d"
+				}
+			},
+			"patterns": [
+						{
+							"name" : "variable.name.pointer.4d",
+							"match": "(?i)(?:\\$|<>|)(?:\\$|<>|)[a-z_0-9]+[a-z_0-9 ]*"
+						}, 
+						{
+							"include" :"#param_separator"
+						}
+					],
+			
+			"end" :"(\\))",
+			"endCaptures": {
+				"1": {
+					"name": "punctuation.section.arguments.end.bracket.round.4d"
+				}
+				
+			}
+				
+		},
+		"object_variable" :{
+			"name" : "storage.type.object.4d",
+			"begin": "(?i)(C_OBJECT(\\:C1216)?)(\\()((?i)(?:\\$|<>|)(?:\\$|<>|)[a-z_0-9]+[a-z_0-9 ]*)",
+			"beginCaptures": {
+				"1":
+				{
+					"name" :"storage.type.object.4d"
+				},
+				"2":
+				{
+					"name" : "meta.c_object.code.4d"
+				},
+				"3":
+				{
+					"name": "punctuation.section.arguments.begin.bracket.round.4d"	
+				},
+				"4":{
+					"name" : "variable.name.object.4d"
+				}
+			},
+			"patterns": [
+						{
+							"name" : "variable.name.object.4d",
+							"match": "(?i)(?:\\$|<>|)(?:\\$|<>|)[a-z_0-9]+[a-z_0-9 ]*"
+						}, 
+						{
+							"include" :"#param_separator"
+						}
+					],
+			
+			"end" :"(\\))",
+			"endCaptures": {
+				"1": {
+					"name": "punctuation.section.arguments.end.bracket.round.4d"
+				}
+				
+			}
+				
+		},
+		"table_reference":
+		{
+			"begin": "(?i)\\[((?:\\$|<>|)[a-z_0-9]+[a-z_0-9 ]*)(\\:[0-9]+)?",
+			"beginCaptures": {
+				"1":
+				{
+					"name" : "support.table.name.4d"
+				},
+				"2" : {
+					"name" : "support.table.index.4d"
+				}
+			},
+			"end" : "\\]"
+			
+		},
+		"for_loop" :{
+			"name" : "meta.block.loop.for.4d",
+			"begin" :"^(?i)(for)\\((\\$[a-z]+);([0-9]+);([0-9]+)\\)",
+			"beginCaptures": {
+				
+				"1":{
+					"name" : "keyword.control.4d"
+				},
+				"2" : {
+					"name" : "variable.name.4d"
+				},
+				"3" :{
+					"name" : "constant.range.begin.4d"
+				},
+				"4" :{
+					"name" : "constant.range.end.4d"
+				}
+			},
+			"end": "(\\n)",
+			"endCaptures": {
+				"1" : {
+					"name" :"punctuation.section.end.for.4d"
+				}
+			}
+		},
+		"affectation_variable":
+		{
+			"name" :"meta.block.affectation.4d",
+			"begin" : "^((?i)(?:\\$|<>|)(?:\\$|<>|)[a-z_0-9]+[a-z_0-9 ]*)(:=)",
+			"beginCaptures": {
+				"1" :{
+					"name" : "variable.name.4d"
+				},
+				"2":{
+					"name" : "keyword.operator.assignment.4d"
+				}
+				
+			},
+			"patterns": [
+				{
+					"include": "#function-call-innards"
+				},
+				{
+					"include": "#member_access"
+				},
+				{
+					"include": "#method_access"
+				},
+				{
+					"include": "#local_variables"
+				},
+				{
+					"include": "#numbers"
+				},
+				{
+					"include": "#strings"
+				},
+				{
+					"include" : "#interprocess_variable"
+				},
+				{
+					"match" : "(?i)(?:\\$|<>|)[a-z_0-9]+[a-z_0-9 ]*",
+					"name" : "meta.probably_variable.4d"
+				}
+			],
+			"end": "(\\n)",
+			"endCaptures": {
+				"1" : {
+					"name" :"punctuation.section.end.affectaction.4d"
+				}
+			}
+
+		},
+		"interprocess_variable" :{
+			"match" :"<>(?i)[a-z_0-9 ]+",
+			"name" : "variable.interprocess.name.4d"
+		},
 		"constant_4d" : {
-			"match" : "(?i)([a-z_0-9 ]*):K[0-9]*:[0-9]*",
+			"match" : "(?i)([a-z_0-9 ]*)(\\:K[0-9]+)?(\\:[0-9]+)",
 			"name": "constant.numeric.4d"
 		},
 		"boolean_values": {
-			"match": "(?i)\\b(NULL|true|false)\\b",
+			"match": "(?i)(NULL|true(\\:C214)?|false(\\:C215)?)",
 			"name": "constant.language.4d"
 		},
 		"parameters": {
@@ -97,7 +495,7 @@
 			"patterns": [
 				{
 					"name": "keyword.control.4d",
-					"match": "(?i)\\b(C_TEXT|C_BOOLEAN|C_REAL|C_OBJECT|C_POINTER|if|while|else|end if|end for|Begin SQL|End SQL|for each|End for each|while|end while|use|end use|case of|end case|repeat|until|for)\\b"
+					"match": "(?i)\\b(if|while|else|end if|end for|Begin SQL|End SQL|for each|End for each|while|end while|use|end use|case of|end case|repeat|until|for)\\b"
 				}
 			]
 		},
@@ -349,21 +747,17 @@
 							"name": "keyword.other.unit.suffix.integer.4d"
 						}
 					}
-				},
-				{
-					"match": "(?:(?:[0-9a-zA-Z_\\.]|')|(?<=[eEpP])[+-])+",
-					"name": "invalid.illegal.constant.numeric"
 				}
 			]
 		},
 		"comments": {
 			"patterns": [
 				{
-				"name": "comment.line.double-slash.cpp",
+				"name": "comment.line.double-slash.4d",
 				"begin": "\\s*+(\\/\\/)",
 				"beginCaptures": {
 					"1": {
-					"name": "punctuation.definition.comment.cpp"
+					"name": "punctuation.definition.comment.4d"
 					}
 				},
 				"end": "(?<=\\n)(?<!\\\\\\n)",
@@ -493,7 +887,7 @@
 					"include": "#operators"
 				},
 				{
-					"begin": "(?x)\n(?!\\s*\\()\n(\n(?:[A-Za-z_\\s*][A-Za-z0-9_]*+)++(\\:C[0-9]+)?  # actual name\n|\n(?:(?<=operator)(?:[-*&<>=+#]+|\\(\\)|\\[\\]))\n)\n\\s*(\\()",
+					"begin": "(?x)\n(?!\\s*\\()\n(\n(?:[A-Za-z_ ][A-Za-z0-9_]*+)++(\\:C[0-9]+)?  # actual name\n|\n(?:(?<=operator)(?:[-*&<>=+#]+|\\(\\)))\n)\n\\s*(\\()",
 					"beginCaptures": {
 						"1": {
 							"name": "entity.name.function.4d"
@@ -541,7 +935,10 @@
 							"include": "#operators"
 						},
 						{
-							"include" :"member_access"
+							"include" :"#member_access"
+						},
+						{
+							"include" :"#table_reference"
 						}
 					]
 				},
@@ -563,7 +960,10 @@
 							"include": "#function-call-innards"
 						},
 						{
-							"include" :"member_access"
+							"include" :"#member_access"
+						},
+						{
+							"include" :"#table_reference"
 						}
 					]
 				}
@@ -669,6 +1069,9 @@
 			"patterns": [
 			  {
 				"include": "#function-call-innards"
+			  },
+			  {
+				  "include" :"#table_reference"
 			  }
 			]
 		  }
