@@ -495,7 +495,7 @@
 			"patterns": [
 				{
 					"name": "keyword.control.4d",
-					"match": "(?i)\\b(if|while|else|end if|end for|Begin SQL|End SQL|for each|End for each|while|end while|use|end use|case of|end case|repeat|until|for)\\b"
+					"match": "(?i)\\b(If|While|Else|End if|For each|End for each|End for|Begin SQL|End SQL|while|End while|Use|End use|Case of|End case|Repeat|Until|For)\\b"
 				}
 			]
 		},
