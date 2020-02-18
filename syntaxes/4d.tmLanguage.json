@@ -39,6 +39,12 @@
 			"include" : "#object_variable"
 		},
 		{
+			"include" : "#variant_variable"
+		},
+		{
+			"include" : "#collection_variable"
+		},
+		{
 			"include": "#strings"
 		},
 		{
@@ -108,7 +114,7 @@
 	"repository": {
 		"long_int_variable" :{
 			"name" : "storage.type.4d",
-			"begin": "(?i)(C_LONGINT(\\:C283)?)(\\()((?i)(?:\\$|<>|)(?:\\$|<>|)[a-z_0-9]+[a-z_0-9 ]*)",
+			"begin": "^\\n*[\\t ]*(?i)(C_LONGINT(\\:C283)?)(\\()((?i)(?:\\$|<>|)(?:\\$|<>|)[a-z_0-9]+[a-z_0-9 ]*)",
 			"beginCaptures": {
 				"1":
 				{
@@ -147,7 +153,7 @@
 		},
 		"real_variable" :{
 			"name" : "storage.type.real.4d",
-			"begin": "(?i)(C_REAL(\\:C285)?)(\\()((?i)(?:\\$|<>|)(?:\\$|<>|)[a-z_0-9]+[a-z_0-9 ]*)",
+			"begin": "^\\n*[\\t ]*(?i)(C_REAL(\\:C285)?)(\\()((?i)(?:\\$|<>|)(?:\\$|<>|)[a-z_0-9]+[a-z_0-9 ]*)",
 			"beginCaptures": {
 				"1":
 				{
@@ -186,7 +192,7 @@
 		},
 		"text_variable" :{
 			"name" : "storage.type.text.4d",
-			"begin": "(?i)(C_TEXT(\\:C284)?)(\\()((?i)(?:\\$|<>|)(?:\\$|<>|)[a-z_0-9]+[a-z_0-9 ]*)",
+			"begin": "^\\n*[\\t ]*(?i)(C_TEXT(\\:C284)?)(\\()((?i)(?:\\$|<>|)(?:\\$|<>|)[a-z_0-9]+[a-z_0-9 ]*)",
 			"beginCaptures": {
 				"1":
 				{
@@ -225,7 +231,7 @@
 		},
 		"boolean_variable" :{
 			"name" : "storage.type.boolean.4d",
-			"begin": "(?i)(C_BOOLEAN(\\:C305)?)(\\()((?i)[\\$a-z_0-9 ]+)",
+			"begin": "^\\n*[\\t ]*(?i)(C_BOOLEAN(\\:C305)?)(\\()((?i)[\\$a-z_0-9 ]+)",
 			"beginCaptures": {
 				"1":
 				{
@@ -264,7 +270,7 @@
 		},
 		"picture_variable" :{
 			"name" : "storage.type.picture.4d",
-			"begin": "(?i)(C_PICTURE(\\:C286)?)(\\()((?i)(?:\\$|<>|)(?:\\$|<>|)[a-z_0-9]+[a-z_0-9 ]*)",
+			"begin": "^\\n*[\\t ]*(?i)(C_PICTURE(\\:C286)?)(\\()((?i)(?:\\$|<>|)(?:\\$|<>|)[a-z_0-9]+[a-z_0-9 ]*)",
 			"beginCaptures": {
 				"1":
 				{
@@ -303,7 +309,7 @@
 		},
 		"pointer_variable" :{
 			"name" : "storage.type.pointer.4d",
-			"begin": "(?i)(C_POINTER(\\:C301)?)(\\()((?i)(?:\\$|<>|)(?:\\$|<>|)[a-z_0-9]+[a-z_0-9 ]*)",
+			"begin": "^\\n*[\\t ]*(?i)(C_POINTER(\\:C301)?)(\\()((?i)(?:\\$|<>|)(?:\\$|<>|)[a-z_0-9]+[a-z_0-9 ]*)",
 			"beginCaptures": {
 				"1":
 				{
@@ -342,7 +348,7 @@
 		},
 		"object_variable" :{
 			"name" : "storage.type.object.4d",
-			"begin": "(?i)(C_OBJECT(\\:C1216)?)(\\()((?i)(?:\\$|<>|)(?:\\$|<>|)[a-z_0-9]+[a-z_0-9 ]*)",
+			"begin": "^\\n*[\\t ]*(?i)(C_OBJECT(\\:C1216)?)(\\()((?i)(?:\\$|<>|)(?:\\$|<>|)[a-z_0-9]+[a-z_0-9 ]*)",
 			"beginCaptures": {
 				"1":
 				{
@@ -363,6 +369,84 @@
 			"patterns": [
 						{
 							"name" : "variable.name.object.4d",
+							"match": "(?i)(?:\\$|<>|)(?:\\$|<>|)[a-z_0-9]+[a-z_0-9 ]*"
+						}, 
+						{
+							"include" :"#param_separator"
+						}
+					],
+			
+			"end" :"(\\))",
+			"endCaptures": {
+				"1": {
+					"name": "punctuation.section.arguments.end.bracket.round.4d"
+				}
+				
+			}
+				
+		},
+		"variant_variable" :{
+			"name" : "storage.type.variant.4d",
+			"begin": "^\\n*[\\t ]*(?i)(C_VARIANT(\\:C1683)?)(\\()((?i)(?:\\$|<>|)(?:\\$|<>|)[a-z_0-9]+[a-z_0-9 ]*)",
+			"beginCaptures": {
+				"1":
+				{
+					"name" :"storage.type.variant.4d"
+				},
+				"2":
+				{
+					"name" : "meta.c_variant.code.4d"
+				},
+				"3":
+				{
+					"name": "punctuation.section.arguments.begin.bracket.round.4d"	
+				},
+				"4":{
+					"name" : "variable.name.variant.4d"
+				}
+			},
+			"patterns": [
+						{
+							"name" : "variable.name.variant.4d",
+							"match": "(?i)(?:\\$|<>|)(?:\\$|<>|)[a-z_0-9]+[a-z_0-9 ]*"
+						}, 
+						{
+							"include" :"#param_separator"
+						}
+					],
+			
+			"end" :"(\\))",
+			"endCaptures": {
+				"1": {
+					"name": "punctuation.section.arguments.end.bracket.round.4d"
+				}
+				
+			}
+				
+		},
+		"collection_variable" :{
+			"name" : "storage.type.collection.4d",
+			"begin": "^\\n*[\\t ]*(?i)(C_COLLECTION(\\:C1488)?)(\\()((?i)(?:\\$|<>|)(?:\\$|<>|)[a-z_0-9]+[a-z_0-9 ]*)",
+			"beginCaptures": {
+				"1":
+				{
+					"name" :"storage.type.collection.4d"
+				},
+				"2":
+				{
+					"name" : "meta.c_collection.code.4d"
+				},
+				"3":
+				{
+					"name": "punctuation.section.arguments.begin.bracket.round.4d"	
+				},
+				"4":{
+					"name" : "variable.name.collection.4d"
+				}
+			},
+			"patterns": [
+						{
+							"name" : "variable.name.collection.4d",
 							"match": "(?i)(?:\\$|<>|)(?:\\$|<>|)[a-z_0-9]+[a-z_0-9 ]*"
 						}, 
 						{
@@ -495,7 +579,7 @@
 			"patterns": [
 				{
 					"name": "keyword.control.4d",
-					"match": "^\\n*[\\t ]*(If|While|Else|End if|For each|End for each|End for|Begin SQL|End SQL|while|End while|Use|End use|Case of|End case|Repeat|Until|For)"
+					"match": "^\\n*[\\t ]*(?i)(If|While|Else|End if|For each|End for each|End for|Begin SQL|End SQL|while|End while|Use|End use|Case of|End case|Repeat|Until|For)"
 				}
 			]
 		},
@@ -1067,6 +1151,27 @@
 			  }
 			},
 			"patterns": [
+				{
+					"include": "#strings"
+				},
+				{
+					"include": "#numbers"
+				},
+				{
+					"include": "#parameters"
+				},
+				{
+					"include": "#local_variables"
+				},
+				{ 
+					"include" : "#boolean_values"
+				},
+				{ 
+					"include" : "#constant_4d"
+				},
+				{
+					"include" : "#param_separator"
+				},
 			  {
 				"include": "#function-call-innards"
 			  },
