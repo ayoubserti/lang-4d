@@ -16,6 +16,11 @@
     "categories": [
         "Programming Languages"
     ],
+    "icon": "icon.png",
+    "keywords": [
+        "4d",
+        "4dm"
+    ],
     "contributes": {
         "languages": [{
             "id": "4d",
