@@ -837,19 +837,17 @@
 		"comments": {
 			"patterns": [
 				{
-				"name": "comment.line.double-slash.4d",
-				"begin": "\\s*+(\\/\\/)",
-				"beginCaptures": {
-					"1": {
-					"name": "punctuation.definition.comment.4d"
-					}
-				},
-				"end": "(?<=\\n)(?<!\\\\\\n)",
-				"patterns": [
-					{
-					"include": "#line_continuation_character"
-					}
-				]
+					"name": "comment.line.double-slash.4d",
+					"begin": "\\s*+(\\/\\/)",
+					"beginCaptures": {
+						"1": {
+						"name": "punctuation.definition.comment.4d"
+						}
+					},
+					"end": "(?<=\\n)(?<!\\\\\\n)",
+					"patterns": [
+						
+					]
 				},
 				{
 					"captures": {
@@ -857,17 +855,17 @@
 							"name": "meta.toc-list.banner.block.4d"
 						}
 					},
-					"match": "^/\\** =(\\s*.*?)\\s*= \\**/$\\n?",
+					"match": "^/\\*\\* =(\\s*.*?)\\s*= \\*\\*/$\\n?",
 					"name": "comment.block.4d"
 				},
 				{
-					"begin": "/\\**",
+					"begin": "/\\*\\*",
 					"beginCaptures": {
 						"0": {
 							"name": "punctuation.definition.comment.begin.4d"
 						}
 					},
-					"end": "\\**/",
+					"end": "\\*\\*/",
 					"endCaptures": {
 						"0": {
 							"name": "punctuation.definition.comment.end.4d"
@@ -903,27 +901,14 @@
 							"end": "(?=\\n)",
 							"name": "comment.line.double-slash.4d",
 							"patterns": [
-								{
-								  "include": "#line_continuation_character"
-								}
+								
 							]
 						}
 					]
 				}
 			]
 		},
-		"line_continuation_character": {
-			"patterns": [
-			  {
-				"match": "(\\\\)\\n",
-				"captures": {
-				  "1": {
-					"name": "constant.character.escape.line-continuation.c"
-				  }
-				}
-			  }
-			]
-		  },
+		
 		"operators": {
 			"patterns": [
 				{
