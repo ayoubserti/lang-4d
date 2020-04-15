@@ -112,7 +112,24 @@
 		},
 		{
 			"include": "#method_access"
+		},
+		{
+			"match": "^\\n*[\\t ]*(?i)(Class constructor)",
+			"name": "entity.name.class.4d"
+		},
+		{
+			"match": "^\\n*[\\t ]*(?i)(Function)(\\s[a-z_0-9]+[a-z_0-9 ]*)",
+			"name": "variable.language.function.4d"
+		},
+		{
+			"match": "^\\n*[\\t ]*(?i)(Class extends)(\\s[a-z_0-9]+[a-z_0-9 ]*)",
+			"name": "entity.name.class.4d"
+		},
+		{
+			"match": "^\\n*[\\t ]*(?i)(Super(\\:C1705)?)",
+			"name": "variable.language.super.4d"
 		}
+		
 	],
 	"repository": {
 		"this-function" :{
