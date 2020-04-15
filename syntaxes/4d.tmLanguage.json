@@ -63,6 +63,9 @@
 			"include" : "#constant_4d"
 		},
 		{
+			"include" :"#this-function"
+		},
+		{
 			"include": "#numbers"
 		},
 		{
@@ -112,6 +115,10 @@
 		}
 	],
 	"repository": {
+		"this-function" :{
+			"match": "(^\\n*[\\t ]*(?i)(This(\\:C1470)?))|((?i)(This(\\:C1470)?))",
+			"name": "variable.language.this.4d"
+		},
 		"long_int_variable" :{
 			"name" : "storage.type.4d",
 			"begin": "^\\n*[\\t ]*(?i)(C_LONGINT(\\:C283)?)(\\()((?i)(?:\\$|<>|)(?:\\$|<>|)[a-z_0-9]+[a-z_0-9 ]*)",
@@ -517,6 +524,9 @@
 				
 			},
 			"patterns": [
+				{
+					"include" :"#this-function"
+				},
 				{
 					"include": "#function-call-innards"
 				},
@@ -977,6 +987,9 @@
 					},
 					"patterns": [
 						{
+						  "include" :"#this-function"
+						},
+						{
 							"include": "#function-call-innards"
 						},
 						{
@@ -1033,6 +1046,9 @@
 						},
 						{
 							"include" :"#table_reference"
+						},
+						{
+						  "include" :"#this-function"
 						}
 					]
 				}
@@ -1055,6 +1071,9 @@
 			  },
 			  "5": {
 				"patterns": [
+					{
+					"include": "#this-function"
+					},	
 				  {
 					"include": "#member_access"
 				  },
@@ -1107,6 +1126,9 @@
 					"include": "#method_access"
 				  },
 				  {
+					  "include" :"#this-function"
+				  },
+				  {
 					"match": "((?:[a-zA-Z_]\\w*|(?<=\\]|\\)))\\s*)(?:((?:\\.\\*|\\.))|((?:->\\*|->)))",
 					"captures": {
 					  "1": {
@@ -1157,12 +1179,15 @@
 				{
 					"include" : "#param_separator"
 				},
-			  {
-				"include": "#function-call-innards"
-			  },
-			  {
-				  "include" :"#table_reference"
-			  }
+				{
+					"include": "#function-call-innards"
+				},
+				{
+					"include" :"#table_reference"
+				},
+				{
+					"include" :"#this-function"
+				}
 			]
 		  }
 	},
